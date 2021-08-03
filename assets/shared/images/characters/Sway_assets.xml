@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Untitled-4.png">
+	<!-- Created with Adobe Animate version 21.0.6.41649 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Sway_Down0000" x="0" y="0" width="700" height="700" pivotX="208" pivotY="499"/>
+	<SubTexture name="Sway_Down0001" x="700" y="0" width="700" height="700"/>
+	<SubTexture name="Sway_Down0002" x="1400" y="0" width="700" height="700"/>
+	<SubTexture name="Sway_Down0003" x="1400" y="0" width="700" height="700"/>
+	<SubTexture name="Sway_Down0004" x="1400" y="0" width="700" height="700"/>
+	<SubTexture name="Sway_Down0005" x="1400" y="0" width="700" height="700"/>
+	<SubTexture name="Sway_Down0006" x="1400" y="0" width="700" height="700"/>
+	<SubTexture name="Sway_Down0007" x="1400" y="0" width="700" height="700"/>
+	<SubTexture name="Sway_Down0008" x="1400" y="0" width="700" height="700"/>
+	<SubTexture name="Sway_Idle0000" x="2100" y="0" width="700" height="700" pivotX="500" pivotY="500"/>
+	<SubTexture name="Sway_Idle0001" x="2800" y="0" width="700" height="700"/>
+	<SubTexture name="Sway_Idle0002" x="0" y="700" width="700" height="700"/>
+	<SubTexture name="Sway_Idle0003" x="700" y="700" width="700" height="700"/>
+	<SubTexture name="Sway_Idle0004" x="1400" y="700" width="700" height="700"/>
+	<SubTexture name="Sway_Idle0005" x="2100" y="700" width="700" height="700"/>
+	<SubTexture name="Sway_Idle0006" x="2800" y="700" width="700" height="700"/>
+	<SubTexture name="Sway_Idle0007" x="2800" y="700" width="700" height="700"/>
+	<SubTexture name="Sway_Idle0008" x="2800" y="700" width="700" height="700"/>
+	<SubTexture name="Sway_Idle0009" x="2800" y="700" width="700" height="700"/>
+	<SubTexture name="Sway_Idle0010" x="2800" y="700" width="700" height="700"/>
+	<SubTexture name="Sway_Idle0011" x="2800" y="700" width="700" height="700"/>
+	<SubTexture name="Sway_Idle0012" x="2800" y="700" width="700" height="700"/>
+	<SubTexture name="Sway_Idle0013" x="2800" y="700" width="700" height="700"/>
+	<SubTexture name="Sway_Left0000" x="0" y="1400" width="700" height="700" pivotX="140" pivotY="499"/>
+	<SubTexture name="Sway_Left0001" x="700" y="1400" width="700" height="700"/>
+	<SubTexture name="Sway_Left0002" x="1400" y="1400" width="700" height="700"/>
+	<SubTexture name="Sway_Left0003" x="1400" y="1400" width="700" height="700"/>
+	<SubTexture name="Sway_Left0004" x="1400" y="1400" width="700" height="700"/>
+	<SubTexture name="Sway_Left0005" x="1400" y="1400" width="700" height="700"/>
+	<SubTexture name="Sway_Left0006" x="1400" y="1400" width="700" height="700"/>
+	<SubTexture name="Sway_Left0007" x="1400" y="1400" width="700" height="700"/>
+	<SubTexture name="Sway_Left0008" x="1400" y="1400" width="700" height="700"/>
+	<SubTexture name="Sway_Right0000" x="2100" y="1400" width="700" height="700" pivotX="500" pivotY="500"/>
+	<SubTexture name="Sway_Right0001" x="2800" y="1400" width="700" height="700"/>
+	<SubTexture name="Sway_Right0002" x="0" y="2100" width="700" height="700"/>
+	<SubTexture name="Sway_Right0003" x="0" y="2100" width="700" height="700"/>
+	<SubTexture name="Sway_Right0004" x="0" y="2100" width="700" height="700"/>
+	<SubTexture name="Sway_Right0005" x="0" y="2100" width="700" height="700"/>
+	<SubTexture name="Sway_Right0006" x="0" y="2100" width="700" height="700"/>
+	<SubTexture name="Sway_Right0007" x="0" y="2100" width="700" height="700"/>
+	<SubTexture name="Sway_Right0008" x="0" y="2100" width="700" height="700"/>
+	<SubTexture name="Sway_Up0000" x="700" y="2100" width="700" height="700" pivotX="163" pivotY="499"/>
+	<SubTexture name="Sway_Up0001" x="1400" y="2100" width="700" height="700"/>
+	<SubTexture name="Sway_Up0002" x="2100" y="2100" width="700" height="700"/>
+	<SubTexture name="Sway_Up0003" x="2100" y="2100" width="700" height="700"/>
+	<SubTexture name="Sway_Up0004" x="2100" y="2100" width="700" height="700"/>
+	<SubTexture name="Sway_Up0005" x="2100" y="2100" width="700" height="700"/>
+	<SubTexture name="Sway_Up0006" x="2100" y="2100" width="700" height="700"/>
+	<SubTexture name="Sway_Up0007" x="2100" y="2100" width="700" height="700"/>
+	<SubTexture name="Sway_Up0008" x="2100" y="2100" width="700" height="700"/>
+</TextureAtlas>

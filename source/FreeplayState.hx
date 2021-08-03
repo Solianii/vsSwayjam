@@ -76,6 +76,7 @@ class FreeplayState extends MusicBeatState
 
 		for (i in 0...songs.length)
 		{
+			trace(songs[i].songName);
 			var songText:Alphabet = new Alphabet(0, (70 * i) + 30, songs[i].songName, true, false, true);
 			songText.isMenuItem = true;
 			songText.targetY = i;
@@ -118,8 +119,6 @@ class FreeplayState extends MusicBeatState
 		selector.size = 40;
 		selector.text = ">";
 		// add(selector);
-
-		var swag:Alphabet = new Alphabet(1, 0, "swag");
 
 		// JUST DOIN THIS SHIT FOR TESTING!!!
 		/* 
@@ -202,10 +201,11 @@ class FreeplayState extends MusicBeatState
 
 		if (accepted)
 		{
+			trace(songs[curSelected].songName);
 			var poop:String = Highscore.formatSong(StringTools.replace(songs[curSelected].songName," ", "-").toLowerCase(), curDifficulty);
 
 			trace(poop);
-
+			
 			PlayState.SONG = Song.loadFromJson(poop, StringTools.replace(songs[curSelected].songName," ", "-").toLowerCase());
 			PlayState.isStoryMode = false;
 			PlayState.storyDifficulty = curDifficulty;

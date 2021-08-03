@@ -334,10 +334,10 @@
 	<SubTexture name="angry faic0001" x="931" y="132" width="54" height="54"/>
 	<SubTexture name="angry faic0002" x="858" y="133" width="54" height="54"/>
 	<SubTexture name="angry faic0003" x="858" y="133" width="54" height="54"/>
-	<SubTexture name="apostraphie0000" x="794" y="307" width="17" height="27" pivotX="0" pivotY="0"/>
-	<SubTexture name="apostraphie0001" x="794" y="307" width="17" height="27"/>
-	<SubTexture name="apostraphie0002" x="337" y="371" width="17" height="27"/>
-	<SubTexture name="apostraphie0003" x="337" y="371" width="17" height="27"/>
+	<SubTexture name="apostrophe0000" x="794" y="307" width="17" height="27" pivotX="0" pivotY="0"/>
+	<SubTexture name="apostrophe0001" x="794" y="307" width="17" height="27"/>
+	<SubTexture name="apostrophe0002" x="337" y="371" width="17" height="27"/>
+	<SubTexture name="apostrophe0003" x="337" y="371" width="17" height="27"/>
 	<SubTexture name="b  lowercase0000" x="730" y="136" width="31" height="50" pivotX="0.2" pivotY="0"/>
 	<SubTexture name="b  lowercase0001" x="730" y="136" width="31" height="50"/>
 	<SubTexture name="b  lowercase0002" x="742" y="408" width="31" height="50"/>

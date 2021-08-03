@@ -33,7 +33,7 @@ class Alphabet extends FlxSpriteGroup
 	var yMulti:Float = 1;
 
 	// custom shit
-	// amp, backslash, question mark, apostrophy, comma, angry faic, period
+	// amp, backslash, question mark, apostrophe, comma, angry faic, period
 	var lastSprite:AlphaCharacter;
 	var xPosResetted:Bool = false;
 	var lastWasSpace:Bool = false;
@@ -44,8 +44,14 @@ class Alphabet extends FlxSpriteGroup
 
 	var isBold:Bool = false;
 
+	var pastX:Float = 0;
+	var pastY:Float  = 0;
+
 	public function new(x:Float, y:Float, text:String = "", ?bold:Bool = false, typed:Bool = false, shouldMove:Bool = false)
 	{
+		pastX = x;
+		pastY = y;
+
 		super(x, y);
 
 		_finalText = text;
@@ -64,6 +70,24 @@ class Alphabet extends FlxSpriteGroup
 			}
 
 		}
+	}
+
+	public function reType(text)
+	{
+		for (i in listOAlphabets)
+			remove(i);
+		_finalText = text;
+		this.text = text;
+
+		lastSprite = null;
+
+		updateHitbox();
+
+		listOAlphabets.clear();
+		x = pastX;
+		y = pastY;
+		
+		addText();
 	}
 
 	public function addText()
@@ -202,6 +226,7 @@ class Alphabet extends FlxSpriteGroup
 					}
 					else
 					{
+						trace(splitWords[loopNum]);
 						letter.createLetter(splitWords[loopNum]);
 					}
 
@@ -254,8 +279,10 @@ class AlphaCharacter extends FlxSprite
 		super(x, y);
 		var tex = Paths.getSparrowAtlas('alphabet');
 		frames = tex;
-
-		antialiasing = true;
+		if(FlxG.save.data.antialiasing)
+			{
+				antialiasing = true;
+			}
 	}
 
 	public function createBold(letter:String)
@@ -300,7 +327,7 @@ class AlphaCharacter extends FlxSprite
 				animation.play(letter);
 				y += 50;
 			case "'":
-				animation.addByPrefix(letter, 'apostraphie', 24);
+				animation.addByPrefix(letter, 'apostrophe', 24);
 				animation.play(letter);
 				y -= 0;
 			case "?":
