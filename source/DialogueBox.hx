@@ -29,9 +29,7 @@ class DialogueBox extends FlxSpriteGroup
 	public var finishThing:Void->Void;
 
 	var portraitLeft:FlxSprite;
-	var portraitRight:FlxSprite;
 
-	var handSelect:FlxSprite;
 	var bgFade:FlxSprite;
 
 	public function new(talkingRight:Bool = true, ?dialogueList:Array<String>)
@@ -87,6 +85,8 @@ class DialogueBox extends FlxSpriteGroup
 				var face:FlxSprite = new FlxSprite(320, 170).loadGraphic(Paths.image('weeb/spiritFaceForward'));
 				face.setGraphicSize(Std.int(face.width * 6));
 				add(face);
+			case 'goals':
+				hasDialog = true;
 		}
 
 		this.dialogueList = dialogueList;
@@ -94,34 +94,13 @@ class DialogueBox extends FlxSpriteGroup
 		if (!hasDialog)
 			return;
 		
-		portraitLeft = new FlxSprite(-20, 40);
-		portraitLeft.frames = Paths.getSparrowAtlas('weeb/senpaiPortrait');
-		portraitLeft.animation.addByPrefix('enter', 'Senpai Portrait Enter', 24, false);
+		portraitLeft = new FlxSprite(-20, 40).loadGraphic(Paths.image('portraitLeft'));
 		portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.9));
 		portraitLeft.updateHitbox();
 		portraitLeft.scrollFactor.set();
 		add(portraitLeft);
 		portraitLeft.visible = false;
-
-		portraitRight = new FlxSprite(0, 40);
-		portraitRight.frames = Paths.getSparrowAtlas('weeb/bfPortrait');
-		portraitRight.animation.addByPrefix('enter', 'Boyfriend portrait enter', 24, false);
-		portraitRight.setGraphicSize(Std.int(portraitRight.width * PlayState.daPixelZoom * 0.9));
-		portraitRight.updateHitbox();
-		portraitRight.scrollFactor.set();
-		add(portraitRight);
-		portraitRight.visible = false;
-		
-		box.animation.play('normalOpen');
-		box.setGraphicSize(Std.int(box.width * PlayState.daPixelZoom * 0.9));
-		box.updateHitbox();
-		add(box);
-
-		box.screenCenter(X);
 		portraitLeft.screenCenter(X);
-
-		handSelect = new FlxSprite(FlxG.width * 0.9, FlxG.height * 0.9).loadGraphic(Paths.image('weeb/pixelUI/hand_textbox'));
-		add(handSelect);
 
 
 		if (!talkingRight)
@@ -197,7 +176,6 @@ class DialogueBox extends FlxSpriteGroup
 						box.alpha -= 1 / 5;
 						bgFade.alpha -= 1 / 5 * 0.7;
 						portraitLeft.visible = false;
-						portraitRight.visible = false;
 						swagDialogue.alpha -= 1 / 5;
 						dropText.alpha = swagDialogue.alpha;
 					}, 5);
@@ -234,20 +212,8 @@ class DialogueBox extends FlxSpriteGroup
 
 		switch (curCharacter)
 		{
-			case 'dad':
-				portraitRight.visible = false;
-				if (!portraitLeft.visible)
-				{
-					portraitLeft.visible = true;
-					portraitLeft.animation.play('enter');
-				}
-			case 'bf':
-				portraitLeft.visible = false;
-				if (!portraitRight.visible)
-				{
-					portraitRight.visible = true;
-					portraitRight.animation.play('enter');
-				}
+			case 'sway':
+				portraitLeft.visible = true;
 		}
 	}
 

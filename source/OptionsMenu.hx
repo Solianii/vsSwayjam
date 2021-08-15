@@ -40,6 +40,7 @@ class OptionsMenu extends MusicBeatState
 		]),
 		new OptionCategory("Appearance", [
 			#if desktop
+			new MainMenuButtPosition("Change which side the buttons at the main menu are on."),
 			new DistractionsAndEffectsOption("Toggle stage distractions that can hinder your gameplay."),
 			new RainbowFPSOption("Make the FPS Counter Rainbow"),
 			new AccuracyOption("Display accuracy information."),
