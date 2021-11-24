@@ -1,14 +1,15 @@
-:sway:..One sec...gotta catch my breath....
-:bf:Bap boop beep
-:sway:..of course you can...your body is like 80% lungs..
-:sway:So, what, why did you wanna rap against me?
-:bf:Boop bep
-:sway:Entertainment...OH CRAP IM STILL LIVE!
-:sway:*Oh so now he notices us* Whoops sorry guys, I guess I got a little carried away
-:bf: Bep bap
-:sway:Wow! They really do like seeing us rap, huh?
-:bf:Bep!
-:sway:Alright then, we can do ONE more, think you can keep up?
-:bf:Bep beep!
-:sway:Oh, you're on!
-:sway:...seriously though, after this, you gotta leave. I have work in the morning.
+0:swayOops:..One sec...gotta catch my breath....
+1:bfUp:Bap
+2:swayAngy:..of course you can...your body is like 80% lungs..
+3:swayConf:So, what, why did you wanna rap against me?
+4:bfIshitmypants:Boop bep
+5:swayConf:Entertainment...
+6:swayShock:OH CRAP IM STILL LIVE!
+7:swayHeh:"Oh so now he notices us," Whoops sorry guys, I guess I got a little carried away
+8:bfIdle:Bap
+9:swayDoesanyoneevenreadthese:Wow! They really do like seeing us rap, huh?
+10:bfSide:Bep!
+11:swayDoesanyoneevenreadthese:Alright then, we can do ONE more, think you can keep up?
+12:bfUp:Bep beep!
+13:swayDoesanyoneevenreadthese:Oh, you're on!
+14:swayOops:...seriously though, after this, you gotta leave. I have work in the morning.

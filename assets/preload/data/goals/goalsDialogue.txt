@@ -1,11 +1,11 @@
-:sway:Uhhh.. How are you real?
-:bf:Beep
-:sway:At 3am?!
-:bf:Bap
-:sway:How did you find me?
-:bf:Boop
-:sway:...and so you decided to dox me?
-:bf:Bep boop
-:sway:Why not Connor or Danny?
-:bf:Bap bep
-:sway:Bruh.
+0:swayShock:Uhhh.. How are you real?
+1:bfUp:Beep
+2:swayShock:At 3am?!
+3:bfSide:Bap
+4:swayConf:How did you find me?
+5:bfIshitmypants:Boop
+6:swayBruh:...and so you decided to dox me?
+7:bfHowdoitalktowomen:Bep boop
+8:swayAngy:Why not Connor or Danny?
+9:bfIdle:Bep
+10:swayBruh:Bruh.

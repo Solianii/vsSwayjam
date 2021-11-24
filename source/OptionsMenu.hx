@@ -40,7 +40,7 @@ class OptionsMenu extends MusicBeatState
 		]),
 		new OptionCategory("Appearance", [
 			#if desktop
-			new MainMenuButtPosition("Change which side the buttons at the main menu are on."),
+			new StoryboardCutscene("Plays storyboard cutscenes instead of dialogue."),
 			new DistractionsAndEffectsOption("Toggle stage distractions that can hinder your gameplay."),
 			new RainbowFPSOption("Make the FPS Counter Rainbow"),
 			new AccuracyOption("Display accuracy information."),
@@ -59,7 +59,8 @@ class OptionsMenu extends MusicBeatState
 			#end
 			new FlashingLightsOption("Toggle flashing lights that can cause epileptic seizures and strain."),
 			new WatermarkOption("Enable and disable all watermarks from the engine."),
-			new BotPlay("Showcase your charts and mods with autoplay.")
+			new BotPlay("Showcase your charts and mods with autoplay."),
+			new VineBoom("Vine Boom")
 		])
 		
 	];

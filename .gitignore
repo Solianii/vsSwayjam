@@ -1,2 +1,9 @@
 export/
 .vscode/
+desktop.ini
+sourceArt/
+audio/
+assets/songs/celebrate/
+assets/songs/prime/
+assets/preload/data/celebrate/
+assets/preload/data/prime/

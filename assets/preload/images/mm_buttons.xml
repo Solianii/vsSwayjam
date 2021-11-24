@@ -16,6 +16,9 @@
 	<SubTexture name="support hover0000" x="1187" y="1213" width="1243" height="291"/>
 	<SubTexture name="support idle0000"  x="1187" y="1506" width="1243" height="291"/>
 	
+	<SubTexture name="credits hover0000" x="0" y="1799" width="1061" height="292"/>
+	<SubTexture name="credits idle0000"  x="1063" y="1799" width="1061" height="292"/>
+	
 	<SubTexture name="discord hover0000" x="2432" y="1213" width="392" height="321"/>
 	<SubTexture name="discord idle0000"  x="2432" y="1536" width="392" height="321"/>
 	

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="swayPortrait.png">
+	<!-- Created with Adobe Animate version 20.0.0.17400 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="angy0000" x="0" y="0" width="386" height="617"/>
+	<SubTexture name="confuse0000" x="388" y="0" width="362" height="615"/>
+	<SubTexture name="excited0000" x="752" y="0" width="669" height="646"/>
+	<SubTexture name="fuckyou0000" x="1423" y="0" width="374" height="628"/>
+	<SubTexture name="happy0000" x="0" y="648" width="347" height="605"/>
+	<SubTexture name="ohshit0000" x="349" y="648" width="345" height="616"/>
+	<SubTexture name="pain0000" x="696" y="648" width="346" height="612"/>
+	<SubTexture name="uhoh0000" x="1044" y="648" width="338" height="608"/>
+</TextureAtlas>

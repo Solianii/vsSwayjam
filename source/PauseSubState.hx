@@ -28,6 +28,8 @@ class PauseSubState extends MusicBeatSubstate
 	var perSongOffset:FlxText;
 	
 	var offsetChanged:Bool = false;
+	
+	public static var pauseBG:FlxSprite;
 
 	public function new(x:Float, y:Float)
 	{
@@ -39,10 +41,11 @@ class PauseSubState extends MusicBeatSubstate
 
 		FlxG.sound.list.add(pauseMusic);
 
-		var bg:FlxSprite = new FlxSprite(0-FlxG.width, 0-FlxG.height*2).makeGraphic(FlxG.width*2, FlxG.height*2, FlxColor.BLACK);
-		bg.alpha = 0;
-		bg.scrollFactor.set();
-		add(bg);
+		pauseBG = new FlxSprite(0-FlxG.width, 0-FlxG.height).makeGraphic(FlxG.width*3, FlxG.height*3, FlxColor.BLACK);
+		
+		pauseBG.alpha = 0;
+		pauseBG.scrollFactor.set();
+		add(pauseBG);
 
 		var levelInfo:FlxText = new FlxText(20, 15, 0, "", 32);
 		levelInfo.text += PlayState.SONG.song;
@@ -64,7 +67,7 @@ class PauseSubState extends MusicBeatSubstate
 		levelInfo.x = FlxG.width - (levelInfo.width + 20);
 		levelDifficulty.x = FlxG.width - (levelDifficulty.width + 20);
 
-		FlxTween.tween(bg, {alpha: 0.6}, 0.4, {ease: FlxEase.quartInOut});
+		FlxTween.tween(pauseBG, {alpha: 0.6}, 0.4, {ease: FlxEase.quartInOut});
 		FlxTween.tween(levelInfo, {alpha: 1, y: 20}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.3});
 		FlxTween.tween(levelDifficulty, {alpha: 1, y: levelDifficulty.y + 5}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.5});
 
@@ -180,6 +183,7 @@ class PauseSubState extends MusicBeatSubstate
 				case "Resume":
 					close();
 				case "Restart Song":
+					PlayState.malding = false;
 					FlxG.resetState();
 				case "Exit to menu":
 					if(PlayState.loadRep)

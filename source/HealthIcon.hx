@@ -16,15 +16,15 @@ class HealthIcon extends FlxSprite
 		loadGraphic(Paths.image('iconGrid'), true, 150, 150);
 
 		antialiasing = true;
-		animation.add('bf', [0, 1], 0, false, isPlayer);
-		animation.add('bf-car', [0, 1], 0, false, isPlayer);
-		animation.add('bf-christmas', [0, 1], 0, false, isPlayer);
-		animation.add('bf-pixel', [21, 21], 0, false, isPlayer);
-		animation.add('dad', [12, 13], 0, false, isPlayer);
+		//neutral, losing, winning
+		animation.add('bf', [0,1,27], 0, false, isPlayer);
+		animation.add('dad', [10], 0, false, isPlayer);
 		animation.add('gf', [16], 0, false, isPlayer);
-		animation.add('gf-christmas', [16], 0, false, isPlayer);
-		animation.add('gf-pixel', [16], 0, false, isPlayer);
-		animation.add('sway', [24, 25], 0, false, isPlayer);
+		animation.add('gfTut', [16], 0, false, isPlayer);
+		animation.add('sway', [24,25,26], 0, false, isPlayer);
+		animation.add('swayGoals', [24,25,26], 0, false, isPlayer);
+		animation.add('swayJammin', [24,25,26], 0, false, isPlayer);
+		animation.add('swayTilted', [24,25,26], 0, false, isPlayer);
 		animation.play(char);
 
 		scrollFactor.set();

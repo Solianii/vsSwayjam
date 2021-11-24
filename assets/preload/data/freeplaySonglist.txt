@@ -1,4 +1,3 @@
-Tutorial:gf:1
 Goals:sway:1
 Jammin':sway:1
 Tilted:sway:1

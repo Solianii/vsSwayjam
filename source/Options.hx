@@ -72,7 +72,7 @@ class Option
 	public function right():Bool { return throw "stub!"; }
 }
 
-class MainMenuButtPosition extends Option
+class StoryboardCutscene extends Option
 {
 	public function new(desc:String)
 	{
@@ -82,17 +82,37 @@ class MainMenuButtPosition extends Option
 
 	public override function press():Bool
 	{
-		FlxG.save.data.menubutt = !FlxG.save.data.menubutt;
+		FlxG.save.data.storyboardinstdialogue = !FlxG.save.data.storyboardinstdialogue;
 		display = updateDisplay();
+		return true;
+	}
+
+	private override function updateDisplay():String
+	{
+		return FlxG.save.data.storyboardinstdialogue ? "Storyboard Cutscenes":"Normal Dialogue";
+	}
+}
+
+class VineBoom extends Option
+{
+	public function new(desc:String)
+	{
+		super();
+		description = desc;
+	}
+
+	public override function press():Bool
+	{
+		FlxG.sound.play(Paths.sound('sway/ishittedmypants'));
 		return true;
 	}
 	
 	private override function updateDisplay():String
 	{
-		// true = leftside; false = rightside
-		return (FlxG.save.data.menubutt ? "Left" : "Right") + " Menu Position";
+		return "Vine Boom";
 	}
 }
+
 
 class DFJKOption extends Option
 {

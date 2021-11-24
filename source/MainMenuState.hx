@@ -28,7 +28,7 @@ class MainMenuState extends MusicBeatState
 	var menuItems:FlxTypedGroup<FlxSprite>;
 
 	#if !switch
-	var optionShit:Array<String> = ['story', 'options', 'support', 'discord', 'twitch', 'freeplay'];
+	var optionShit:Array<String> = ['story', 'options', 'support', 'credits','discord', 'twitch', 'freeplay'];
 	#else
 	var optionShit:Array<String> = ['story', 'freeplay'];
 	#end
@@ -42,12 +42,10 @@ class MainMenuState extends MusicBeatState
 
 	var bg:FlxSprite;
 	var bgM:FlxSprite;
-	var bgRight:FlxSprite;
 	var switchArrow:FlxSprite;
 	var logo:FlxSprite;
 
 	var buttSpaceX:Int;
-	var buttSpaceY:Int;
 	
 	var bgSelect:FlxSprite;
 	public static var nightly:String = "";
@@ -72,7 +70,6 @@ class MainMenuState extends MusicBeatState
 
 		persistentUpdate = persistentDraw = true;
 
-		// flip these if its in other menubutt mode <3
 		bg = new FlxSprite(0,0).loadGraphic(Paths.image('menuBG'));
 		bg.screenCenter();
 		bg.antialiasing = true;
@@ -96,8 +93,7 @@ class MainMenuState extends MusicBeatState
 		//var tex = Paths.getSparrowAtlas('FNF_main_menu_assets');
 		var tex = Paths.getSparrowAtlas('mm_buttons');
 
-		// also hehe more inefficient code!! :innocent:
-		
+		// also hehe inefficient code!! :innocent: (its not as bad as before at least)
 		// -------------------------------------------------------------------------------------------------------------------
 		for (i in 0...optionShit.length)
 		{
@@ -112,47 +108,52 @@ class MainMenuState extends MusicBeatState
 			menuItem.animation.play('idle');
 			menuItem.ID = i;
 			menuItem.updateHitbox();
+			menuItem.alpha = 0;
+			menuItem.x = 0-(menuItem.width*2);
 			
-			switch (optionShit[i])
+			switch (optionShit[i]) //these are where they START the tween (offscreen)
+			//buttSpaceX is where their final position is
 			{
-				case 'story': //first to be selected, so freeplay will have a bit of an offset
-					trace("story done");
+				case 'story':
+					buttSpaceX = 0;
 				case 'options':
+					buttSpaceX = 0;
 					menuItem.y = menuItems.members[0].height;
 					
-					
 					//gonna make the option item create the arrow because fuck you
-					switchArrow = new FlxSprite(menuItems.members[0].width+10, 15);
+					switchArrow = new FlxSprite(-FlxG.width*1.6, 15);
 					switchArrow.frames = tex;
 					switchArrow.animation.addByPrefix('idle', "arrow idle", 24);
 					switchArrow.animation.addByPrefix('press', "arrow press", 24);
 					switchArrow.animation.play('idle');
+					switchArrow.alpha = 0;
 					
-					switchArrow.flipX = !FlxG.save.data.menubutt;
 					switchArrow.setGraphicSize(Std.int((switchArrow.width/10)/2.5));
 					switchArrow.updateHitbox();
 					
 					add(switchArrow);
 					switchArrow.scrollFactor.set();
 					switchArrow.antialiasing = true;
-					
-					trace("options & arrow done");
 				case 'support':
+					buttSpaceX = 0;
 					menuItem.y = menuItems.members[1].y + menuItems.members[1].height;
-					trace("support done");
-				case 'discord':
-					menuItem.y = menuItems.members[2].y + menuItems.members[2].height+10;
-					menuItem.x = menuItems.members[2].getMidpoint().x-(menuItem.width/2.5)-20;
-					trace(menuItem.width);
-					trace("discord done");
-				case 'twitch':
+				case 'credits':
+					buttSpaceX = 0;
 					menuItem.y = menuItems.members[2].y + menuItems.members[2].height;
-					menuItem.x = menuItems.members[2].getMidpoint().x+20;
-					trace("twitch done");
+					
+				case 'discord':
+					buttSpaceX = 25;
+					menuItem.y = menuItems.members[3].y + menuItems.members[3].height+10;
+				case 'twitch':
+					buttSpaceX = 200;
+					menuItem.y = menuItems.members[3].y + menuItems.members[3].height;
 				case 'freeplay':
-					menuItem.x = menuItems.members[0].width + switchArrow.width+20;
-					trace("freeplay done");
+					buttSpaceX = Std.int(menuItems.members[0].width + switchArrow.width+20);
 			}
+			
+			FlxTween.tween(menuItem,{x: buttSpaceX, alpha:1}, 1,{ease: FlxEase.expoInOut});
+			if (optionShit[i] == 'freeplay')
+				FlxTween.tween(switchArrow,{x: menuItems.members[0].width+10, alpha: 1}, 1 ,{ease: FlxEase.expoInOut});
 			
 			menuItem.setGraphicSize(Std.int(menuItem.width/2.5));
 			menuItem.updateHitbox();
@@ -171,17 +172,16 @@ class MainMenuState extends MusicBeatState
 
 		var versionShit:FlxText = new FlxText(0, 0, 0, gameVer +  (Main.watermarks ? " FNF - " + kadeEngineVer + " KADE ENGINE" : ""), 20);
 		versionShit.scrollFactor.set();
-		versionShit.setFormat(Paths.font("Mousse-Regular.otf"), 20, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		versionShit.setFormat(Paths.font("Mousse-Regular.otf"), 25, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		versionShit.y = FlxG.height - versionShit.height;
-		versionShit.x = Std.int(FlxG.save.data.menubutt ? 0 : FlxG.width - versionShit.width);
 		add(versionShit);
 		
-		var demoThing:FlxText = new FlxText(0, 0, 0, "vs Swayjam DEMO - Last Updated 8/15");
-		demoThing.scrollFactor.set();
-		demoThing.setFormat(Paths.font("Mousse-Regular.otf"), 20, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		demoThing.y = FlxG.height - demoThing.height;
-		demoThing.screenCenter(X);
-		add(demoThing);
+		//var demoThing:FlxText = new FlxText(0, 0, 0, "vs Swayjam DEMO");
+		//demoThing.scrollFactor.set();
+		//demoThing.setFormat(Paths.font("Mousse-Regular.otf"), 25, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		//demoThing.y = FlxG.height - demoThing.height;
+		//demoThing.x = FlxG.width-demoThing.width-5;
+		//add(demoThing);
 
 		// NG.core.calls.event.logEvent('swag').send();
 
@@ -212,9 +212,9 @@ class MainMenuState extends MusicBeatState
 				FlxG.sound.play(Paths.sound('scrollMenu'));
 				switch (optionShit[curSelected])
 				{
-					case 'story':
+					case 'story','freeplay':
 						if (discordLastSelected)
-							changeItem(69,3);
+							changeItem(69,4);
 						else
 							changeItem(-1);
 					case 'twitch':
@@ -229,7 +229,7 @@ class MainMenuState extends MusicBeatState
 				FlxG.sound.play(Paths.sound('scrollMenu'));
 				switch (optionShit[curSelected])
 				{
-					case 'support':
+					case 'credits':
 						if (discordLastSelected)
 							changeItem(1);
 						else
@@ -253,8 +253,8 @@ class MainMenuState extends MusicBeatState
 						
 						switch (curSelected)
 						{
-							case 0,5,1,2:
-								if (controls.LEFT_P && (optionShit[curSelected] == 'options' || optionShit[curSelected] == 'support'))
+							case 0,6,1,2,3:
+								if (controls.LEFT_P && (optionShit[curSelected] == 'options' || optionShit[curSelected] == 'support'|| optionShit[curSelected] == 'credits'))
 									trace("cant go left dumbass");
 								else
 								{
@@ -264,13 +264,13 @@ class MainMenuState extends MusicBeatState
 										storyLastSelected = false; //go to freeplay
 										curSelected = menuItems.length - 1;
 										
-										menuItems.members[5].alpha = 0;
-										FlxTween.tween(menuItems.members[5], {x: 0, alpha: 1}, 0.07);
+										menuItems.members[6].alpha = 0;
+										FlxTween.tween(menuItems.members[6], {x: 0, alpha: 1}, 0.07);
 										
-										switchArrow.x = menuItems.members[5].width+10;
+										switchArrow.x = menuItems.members[6].width+10;
 										
 										menuItems.members[0].alpha = 0;
-										FlxTween.tween(menuItems.members[0], {x: menuItems.members[5].width + switchArrow.width+20, alpha: 1}, 0.07);
+										FlxTween.tween(menuItems.members[0], {x: menuItems.members[6].width + switchArrow.width+20, alpha: 1}, 0.07);
 									}
 									else
 									{
@@ -282,8 +282,8 @@ class MainMenuState extends MusicBeatState
 										
 										switchArrow.x = menuItems.members[0].width+10;
 										
-										menuItems.members[5].alpha = 0;
-										FlxTween.tween(menuItems.members[5], {x: menuItems.members[0].width + switchArrow.width+20, alpha: 1}, 0.07);
+										menuItems.members[6].alpha = 0;
+										FlxTween.tween(menuItems.members[6], {x: menuItems.members[0].width + switchArrow.width+20, alpha: 1}, 0.07);
 									}
 									
 									new FlxTimer().start(.125, function(tmr:FlxTimer)
@@ -293,15 +293,15 @@ class MainMenuState extends MusicBeatState
 									
 									changeItem(0);
 								}
-							case 3,4:
+							case 4,5:
 								if (discordLastSelected)
 								{
-									changeItem(69,4);
+									changeItem(69,5);
 									discordLastSelected = false;
 								}
 								else
 								{
-									changeItem(69,3);
+									changeItem(69,4);
 									discordLastSelected = true;
 								}
 						}
@@ -309,15 +309,20 @@ class MainMenuState extends MusicBeatState
 			
 			if (controls.ACCEPT)
 			{
+				menuItems.forEach(function(item:FlxSprite)
+						{
+							//cancelTweensOf(item);
+						});
+				
 				switch (optionShit[curSelected])
 				{
 					case 'support':
 						fancyOpenURL("https://ninja-muffin24.itch.io/funkin");
 					case 'discord':
-						//fancyOpenURL("https://discord.gg/NbhmEE2kKY");
+						fancyOpenURL("https://discord.gg/NbhmEE2kKY");
 						trace('discord opened');
 					case 'twitch':
-						//fancyOpenURL("https://www.twitch.tv/swayjam");
+						fancyOpenURL("https://www.twitch.tv/swayjam");
 						trace('twitch opened');
 					default:
 						selectedSomethin = true;
@@ -378,6 +383,8 @@ class MainMenuState extends MusicBeatState
 				trace("Freeplay Menu Selected");
 			case 'options':
 				FlxG.switchState(new OptionsMenu());
+			case 'credits':
+				FlxG.switchState(new CreditMenuState());
 		}
 	}
 
@@ -412,7 +419,7 @@ class MainMenuState extends MusicBeatState
 			
 			if (!storyLastSelected) //if freeplay most recent
 			{
-				if (spr.ID != 5) //if id is not freeplay
+				if (spr.ID != 6) //if id is not freeplay
 					spr.animation.play('idle');
 				else
 					spr.animation.play('recent');

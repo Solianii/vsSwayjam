@@ -1,9 +1,11 @@
-:sway:So you saw me playing Funky Friday?
-:bf:Bep
-:sway:...and you just assumed I was good at rapping?
-:bf:...baaap?
-:sway:Dude! You can't just break into someone's house and force them to rap against you!
-:bf:Beep Boop.
-:sway:Wait, you already have?
-:bf:Bep
-:sway:A restraining order? That's nonsense!!
+0:swayConf:So you saw me playing Funky Friday?
+1:bfUp:Bep
+2:swayAngy:...and you just assumed I was good at rapping?
+3:bfIshitmypants:...baaap?
+4:swayAngy:Dude! You can't just break into someone's house and force them to rap against you!
+5:bfIdle:Beep Boop.
+6:swayShock:Wait, you already have?
+7:bfSouhhhYoucomehereoften:Bep
+8:swayConf:A restraining order?
+9:bfRestrainingOrder:Boop
+10:swayAngy:That's nonsense!!

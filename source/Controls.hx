@@ -14,6 +14,7 @@ import flixel.input.keyboard.FlxKey;
 #if (haxe >= "4.0.0")
 enum abstract Action(String) to String from String
 {
+	var SECRET = "secret";
 	var UP = "up";
 	var LEFT = "left";
 	var RIGHT = "right";
@@ -36,6 +37,7 @@ enum abstract Action(String) to String from String
 @:enum
 abstract Action(String) to String from String
 {
+	var SECRET = "secret";
 	var UP = "up";
 	var LEFT = "left";
 	var RIGHT = "right";
@@ -69,6 +71,7 @@ enum Device
  */
 enum Control
 {
+	SECRET;
 	UP;
 	LEFT;
 	RIGHT;
@@ -94,6 +97,7 @@ enum KeyboardScheme
  */
 class Controls extends FlxActionSet
 {
+	var _secret = new FlxActionDigital(Action.SECRET);
 	var _up = new FlxActionDigital(Action.UP);
 	var _left = new FlxActionDigital(Action.LEFT);
 	var _right = new FlxActionDigital(Action.RIGHT);
@@ -120,7 +124,13 @@ class Controls extends FlxActionSet
 
 	public var gamepadsAdded:Array<Int> = [];
 	public var keyboardScheme = KeyboardScheme.None;
+	
+	
+	public var SECRET(get, never):Bool;
 
+	inline function get_SECRET()
+		return _secret.check();
+	
 	public var UP(get, never):Bool;
 
 	inline function get_UP()
@@ -210,7 +220,8 @@ class Controls extends FlxActionSet
 	public function new(name, scheme = None)
 	{
 		super(name);
-
+		
+		add(_secret);
 		add(_up);
 		add(_left);
 		add(_right);
@@ -239,6 +250,7 @@ class Controls extends FlxActionSet
 	{
 		super(name);
 
+		add(_secret);
 		add(_up);
 		add(_left);
 		add(_right);
@@ -301,6 +313,7 @@ class Controls extends FlxActionSet
 	{
 		return switch (control)
 		{
+			case SECRET: _secret;
 			case UP: _up;
 			case DOWN: _down;
 			case LEFT: _left;
@@ -329,6 +342,8 @@ class Controls extends FlxActionSet
 	{
 		switch (control)
 		{
+			case SECRET:
+				func(_secret, JUST_PRESSED);
 			case UP:
 				func(_up, PRESSED);
 				func(_upP, JUST_PRESSED);
@@ -500,6 +515,7 @@ class Controls extends FlxActionSet
 		switch (scheme)
 		{
 			case Solo:
+				inline bindKeys(Control.SECRET, [T]);
 				inline bindKeys(Control.UP, [FlxKey.fromString("W"), FlxKey.UP]);
 				inline bindKeys(Control.DOWN, [FlxKey.fromString("S"), FlxKey.DOWN]);
 				inline bindKeys(Control.LEFT, [FlxKey.fromString("A"), FlxKey.LEFT]);
@@ -509,6 +525,7 @@ class Controls extends FlxActionSet
 				inline bindKeys(Control.PAUSE, [P, ENTER, ESCAPE]);
 				inline bindKeys(Control.RESET, [FlxKey.fromString("R")]);
 			case Duo(true):
+				inline bindKeys(Control.SECRET, [T]);
 				inline bindKeys(Control.UP, [W, K]);
 				inline bindKeys(Control.DOWN, [S, J]);
 				inline bindKeys(Control.LEFT, [A, H]);
@@ -518,6 +535,7 @@ class Controls extends FlxActionSet
 				inline bindKeys(Control.PAUSE, [ONE]);
 				inline bindKeys(Control.RESET, [R]);
 			case Duo(false):
+				inline bindKeys(Control.SECRET, [T]);
 				inline bindKeys(Control.UP, [FlxKey.UP]);
 				inline bindKeys(Control.DOWN, [FlxKey.DOWN]);
 				inline bindKeys(Control.LEFT, [FlxKey.LEFT]);
@@ -533,6 +551,7 @@ class Controls extends FlxActionSet
 		switch (scheme)
 		{
 			case Solo:
+				bindKeys(Control.SECRET, [T]);
 				bindKeys(Control.UP, [W, K, FlxKey.UP]);
 				bindKeys(Control.DOWN, [S, J, FlxKey.DOWN]);
 				bindKeys(Control.LEFT, [A, H, FlxKey.LEFT]);
@@ -542,6 +561,7 @@ class Controls extends FlxActionSet
 				bindKeys(Control.PAUSE, [P, ENTER, ESCAPE]);
 				bindKeys(Control.RESET, [R]);
 			case Duo(true):
+				bindKeys(Control.SECRET, [T]);
 				bindKeys(Control.UP, [W, K]);
 				bindKeys(Control.DOWN, [S, J]);
 				bindKeys(Control.LEFT, [A, H]);
@@ -551,6 +571,7 @@ class Controls extends FlxActionSet
 				bindKeys(Control.PAUSE, [ONE]);
 				bindKeys(Control.RESET, [R]);
 			case Duo(false):
+				bindKeys(Control.SECRET, [T]);
 				bindKeys(Control.UP, [FlxKey.UP]);
 				bindKeys(Control.DOWN, [FlxKey.DOWN]);
 				bindKeys(Control.LEFT, [FlxKey.LEFT]);
@@ -571,7 +592,9 @@ class Controls extends FlxActionSet
 		//trace(FlxKey.fromString(FlxG.save.data.upBind));
 
 		removeKeyboard();
-	
+		
+		
+		inline bindKeys(Control.SECRET, [T]);
 		inline bindKeys(Control.UP, [FlxKey.fromString(FlxG.save.data.upBind), FlxKey.UP]);
 		inline bindKeys(Control.DOWN, [FlxKey.fromString(FlxG.save.data.downBind), FlxKey.DOWN]);
 		inline bindKeys(Control.LEFT, [FlxKey.fromString(FlxG.save.data.leftBind), FlxKey.LEFT]);

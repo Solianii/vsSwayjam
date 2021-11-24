@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="hands.png">
+	<!-- Created with Adobe Animate version 20.0.0.17400 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="iamtired0000" x="0" y="0" width="232" height="390" frameX="0" frameY="-13" frameWidth="232" frameHeight="403"/>
+	<SubTexture name="iamtired0001" x="234" y="0" width="223" height="400" frameX="-4" frameY="-3" frameWidth="232" frameHeight="403"/>
+	<SubTexture name="iamtired0002" x="459" y="0" width="221" height="402" frameX="-5" frameY="-1" frameWidth="232" frameHeight="403"/>
+	<SubTexture name="iamtired0003" x="682" y="0" width="219" height="403" frameX="-6" frameY="0" frameWidth="232" frameHeight="403"/>
+	<SubTexture name="iamtired0004" x="0" y="405" width="218" height="403" frameX="-7" frameY="0" frameWidth="232" frameHeight="403"/>
+	<SubTexture name="iamtired0005" x="220" y="405" width="219" height="403" frameX="-6" frameY="0" frameWidth="232" frameHeight="403"/>
+	<SubTexture name="iamtired0006" x="441" y="405" width="219" height="402" frameX="-6" frameY="0" frameWidth="232" frameHeight="403"/>
+	<SubTexture name="iamtired0007" x="441" y="405" width="219" height="402" frameX="-6" frameY="0" frameWidth="232" frameHeight="403"/>
+	<SubTexture name="iamtired0008" x="441" y="405" width="219" height="402" frameX="-6" frameY="0" frameWidth="232" frameHeight="403"/>
+	<SubTexture name="iamtired0009" x="441" y="405" width="219" height="402" frameX="-6" frameY="0" frameWidth="232" frameHeight="403"/>
+	<SubTexture name="iamtired0010" x="441" y="405" width="219" height="402" frameX="-6" frameY="0" frameWidth="232" frameHeight="403"/>
+	<SubTexture name="iamtired0011" x="441" y="405" width="219" height="402" frameX="-6" frameY="0" frameWidth="232" frameHeight="403"/>
+	<SubTexture name="iamtired0012" x="441" y="405" width="219" height="402" frameX="-6" frameY="0" frameWidth="232" frameHeight="403"/>
+	<SubTexture name="iamtired0013" x="441" y="405" width="219" height="402" frameX="-6" frameY="0" frameWidth="232" frameHeight="403"/>
+</TextureAtlas>

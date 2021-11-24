@@ -19,8 +19,8 @@ import flixel.FlxG;
 class GameplayCustomizeState extends MusicBeatState
 {
 
-    var defaultX:Float = FlxG.width * 0.55 - 135;
-    var defaultY:Float = FlxG.height / 2 - 50;
+    var defaultX:Float = FlxG.width * 0.20;
+    var defaultY:Float = FlxG.height * .75;
 
     var background:FlxSprite;
     var curt:FlxSprite;

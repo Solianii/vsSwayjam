@@ -26,20 +26,20 @@ class StoryMenuState extends MusicBeatState
 	var scoreText:FlxText;
 
 	var weekData:Array<Dynamic> = [
-		['Tutorial'],
 		['Goals', "Jammin'", 'Tilted']
+		//['Goals']
+		//["Jammin'"]
+		//['Tilted']
 	];
 	var curDifficulty:Int = 0;
 
 	public static var weekUnlocked:Array<Bool> = [true, true];
 
 	var weekCharacters:Array<Dynamic> = [
-		['', 'bf', 'gf'],
 		['dad', 'bf', 'gf']
 	];
 
 	var weekNames:Array<String> = [
-		"How to Funk",
 		"Streaming: Funky Friday"
 	];
 
@@ -144,10 +144,11 @@ class StoryMenuState extends MusicBeatState
 		}
 		
 		grpWeekGraphics.members[0].y = 250;
-		grpWeekGraphics.members[1].y = 100;
+		//grpWeekGraphics.members[1].y = 100;
 		
-		FlxTween.tween(grpWeekGraphics.members[0], {x: 107, alpha: 1}, .5,{ease: FlxEase.expoInOut});
-		FlxTween.tween(grpWeekGraphics.members[1], {x: 161, alpha: .15}, .5,{ease: FlxEase.expoInOut});
+		//FlxTween.tween(grpWeekGraphics.members[0], {x: 107, alpha: 1}, .5,{ease: FlxEase.expoInOut});
+		//FlxTween.tween(grpWeekGraphics.members[1], {x: 161, alpha: .15}, .5,{ease: FlxEase.expoInOut});
+		FlxTween.tween(grpWeekGraphics.members[0], {x: 161, alpha: 1}, .5,{ease: FlxEase.expoInOut});
 		
 		trace("Line 96");
 
@@ -255,15 +256,15 @@ class StoryMenuState extends MusicBeatState
 		{
 			if (!selectedWeek)
 			{
-				if (controls.UP_P)
-				{
-					changeWeek(-1);
-				}
+				//if (controls.UP_P)
+				//{
+					//changeWeek(-1);
+				//}
 
-				if (controls.DOWN_P)
-				{
-					changeWeek(1);
-				}
+				//if (controls.DOWN_P)
+				//{
+				//	changeWeek(1);
+				//}
 
 				if (controls.RIGHT)
 					rightArrow.animation.play('press')
@@ -296,6 +297,16 @@ class StoryMenuState extends MusicBeatState
 
 		super.update(elapsed);
 	}
+	
+	function cancelDumbTweens()
+	{
+		grpWeekGraphics.forEach(function(item:FlxSprite)
+						{
+							//cancelTweensOf(item);
+						});
+		//cancelTweensOf(leftArrow);
+		//cancelTweensOf(rightArrow);
+	}
 
 	var movedBack:Bool = false;
 	var selectedWeek:Bool = false;
@@ -311,7 +322,8 @@ class StoryMenuState extends MusicBeatState
 			
 			FlxTween.tween(leftArrow, {alpha: 0}, .5,{ease: FlxEase.expoInOut});
 			FlxTween.tween(rightArrow, {alpha: 0}, .5,{ease: FlxEase.expoInOut});
-			FlxTween.tween((curWeek == 0 ? grpWeekGraphics.members[1]:grpWeekGraphics.members[0]), {alpha: 0}, .5,{ease: FlxEase.expoInOut});
+			//FlxTween.tween((curWeek == 0 ? grpWeekGraphics.members[1]:grpWeekGraphics.members[0]), {alpha: 0}, .5,{ease: FlxEase.expoInOut});
+			FlxTween.tween(grpWeekGraphics.members[0], {alpha: 0}, .5,{ease: FlxEase.expoInOut});
 			
 			PlayState.storyPlaylist = weekData[curWeek];
 			PlayState.isStoryMode = true;
@@ -334,6 +346,8 @@ class StoryMenuState extends MusicBeatState
 			PlayState.campaignScore = 0;
 			new FlxTimer().start(1, function(tmr:FlxTimer)
 			{
+				//cancelDumbTweens();
+				
 				LoadingState.loadAndSwitchState(new PlayState(), true);
 			});
 		}
